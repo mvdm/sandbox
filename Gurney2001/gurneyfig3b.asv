@@ -1,3 +1,42 @@
+<<<<<<< HEAD
+%% sandbox Gurney
+
+%
+%this is a help section
+%
+%
+%
+%
+
+%% Parameters
+
+params.numChans = 4;
+params.posWeight = .45;
+params.negWeight = -1.35;
+params.chanIDs = 1:params.numChans;
+params.m = 1;
+params.epsilon = -.1;
+
+%% build the weight and input matrices
+% Weights
+W = ones(params.numChans)*params.posWeight;
+W(eye(params.numChans)~=0)=params.negWeight;
+
+% inputs
+X = [.25 .75 .40 .80];
+%% Calculate the Activation 'Y'
+Y = X*W;
+
+%% Piecewise linear squashing
+output = nan(size(Y));
+for ii = 1:length(Y)
+    output(ii) = piecewise(Y(ii), params.epsilon, params.m);
+
+end
+
+
+
+=======
 %% Gurney fig3b project
 
 
@@ -57,4 +96,4 @@ hold on
 line(0:0.005:params.numChans+1, 0.1,'Color','k')
 set(gca,'YTick',[-0:.25:1])
 text(0.1, 0.09, 'yo')
-
+>>>>>>> origin/master
