@@ -21,7 +21,7 @@ function [S Yo] = selection_gurney2001a_fun(x, params)
 %% weight matrix
 Wmat = ones(params.numChans);
 weights_matrice = Wmat * params.posW;
-negpos = eye(params.numChans);
+negpos = eye(numChans);
 inds = find(negpos == 1);
 weights_matrice(inds) = params.negW;
 
