@@ -33,8 +33,8 @@ y = piecewise(a, params.epsilon, params.m);
 
 %% Calculate the Selected bool 
 
-thr_l = params.thr_large
-thr_s = params.thr_small
+thr_l = params.thr_large;
+thr_s = params.thr_small;
 
 S=zeros(1,length(y));
 S(y>thr_l) = 1;
