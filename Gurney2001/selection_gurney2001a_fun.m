@@ -1,8 +1,9 @@
 function [S Yo] = selection_gurney2001a_fun(x, params)
-% function [S Yo D] = fun_thr(y, param)
+% function [S Yo] = selection_gurney2001a_fun(x, params)
 % INPUT =
-% x = vectors of INTPUT salience value (see Gurney et al 2001a)
-% params = structure  
+% x: vectors of INPUT salience value (see Gurney et al 2001a)
+% params: structure with parameters, example:
+%
 % params.numChans = 4;
 % params.posW = 0.45;
 % params.negW = -1.35;
@@ -12,6 +13,7 @@ function [S Yo] = selection_gurney2001a_fun(x, params)
 % params.m = 1;
 % params.thr_large = 0.1; % theta thr   
 % params.thr_small = 0; 
+%
 % OUTPUT =
 % S = Selected channel (bool)
 % Yo = indeterminate set (bool)
@@ -21,7 +23,7 @@ function [S Yo] = selection_gurney2001a_fun(x, params)
 %% weight matrix
 Wmat = ones(params.numChans);
 weights_matrice = Wmat * params.posW;
-negpos = eye(numChans);
+negpos = eye(params.numChans);
 inds = find(negpos == 1);
 weights_matrice(inds) = params.negW;
 
