@@ -31,36 +31,6 @@ a = x*weights_matrice;
 %% Calculate output
 y = piecewise(a, params.epsilon, params.m);
 
-%% plot the results
-figure(1)
-%plot the input
-subplot(1,3,1)
-bar(params.chanIDs, x ,0.5, 'k')
-title('Input', 'FontSize', 12)
-xlabel('Channel')
-ylabel('Signal Level')
-ylim([0 1])
-set(gca,'YTick',[-0:.25:1])
-
-%plot the activation level
-subplot(132)
-bar(params.chanIDs, a,0.5, 'k')
-title('Activation', 'FontSize', 12)
-xlabel('Channel')
-ylim([-.5 .5])
-set(gca,'YTick',[-0.5:.25:0.5])
-
-% plot the output
-subplot(133)
-bar(params.chanIDs, y,0.5, 'k')
-xlabel('Channel')
-title('Output', 'FontSize', 12)
-ylim([0 1])
-hold on 
-line(0:0.005:params.numChans+1, 0.1,'Color','k')
-set(gca,'YTick',[-0:.25:1])
-text(0.1, 0.09, 'yo')
-
 %% Calculate the Selected bool 
 
 thr_l = params.thr_large
