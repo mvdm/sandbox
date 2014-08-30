@@ -3,7 +3,7 @@ function action_matrix = softmax(x,params)
 % matrix with 1 for the selected action and zeros for the ignored actions.
 
 softmax = exp(x/params.tau)./sum(exp(x/params.tau));
-action_matrix = zeros(1,4);
+action_matrix = zeros(1,length(x));
 
 action_selection = find(rand < cumsum(softmax), 1, 'first');
 
