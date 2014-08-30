@@ -1,14 +1,18 @@
-function [y] = egreedy(x, params);
+function [y] = egreedy(x, params)
 
 %% Epsilon greedy action selector
 % Selects an action based off e-greedy policy
 
 %% randomize
 if rand(1) <= 1-params.e
-    y = max(x);
+    [~,idx] = max(x);
 else
-    y = datasample(x,1);
+    temp = randperm(length(x));
+    idx = temp(1);
 end
+
+y = zeros(size(x));
+y(idx) = 1;
 
 end
 
