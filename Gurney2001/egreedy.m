@@ -7,6 +7,8 @@ if length(x(x==max(x)))>1
     max_ind = find(x==max(x));
     max_x_ind = max_ind(randperm(numel(max_ind)));
     max_x = max_x_ind(1);
+else
+   [~,max_x] = max(x); 
 end
 %% randomize
 if rand(1) <= 1-params.e

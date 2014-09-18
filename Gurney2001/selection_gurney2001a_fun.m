@@ -38,10 +38,10 @@ y = piecewise(a, params.epsilon, params.m);
 thr_l = params.thr_large;
 thr_s = params.thr_small;
 
-S=zeros(1,length(y));
-S(y>thr_l) = 1;
+S=ones(1,length(y));
+S(y>thr_l) = 0;
 
-Yo = zeros(1,length(y));
-Yo(y>thr_s & y<thr_l) = 1;
+Yo = ones(1,length(y));
+Yo(y>thr_s & y<thr_l) = 0;
 
 end
